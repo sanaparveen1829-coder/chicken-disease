@@ -17,3 +17,15 @@ class PrepareBaseModelTrainingPipeline:
         prepare_base_model.get_base_model() 
         prepare_base_model.update_base_model()
         logger.info(f">>>>>> Stage {STAGE_NAME} completed <<<<<<\n\n")
+
+
+if __name__ == "__main__":
+    try:
+        logger.info(f">>>>>> Pipeline started <<<<<<")
+        obj = PrepareBaseModelTrainingPipeline()
+        obj.main()
+        logger.info(f">>>>>> Pipeline completed <<<<<<\n\n")
+    
+    except Exception as e:
+        logger.exception(e)
+        raise e
