@@ -3,11 +3,12 @@ from box.exceptions import BoxValueError
 import yaml
 from CNNClassifier import logger
 import json
+from pathlib import Path
 import joblib
 from ensure import ensure_annotations
-from typing import Any
+#from typing import Any
+from typing import Union
 from box import ConfigBox
-from pathlib import Path
 import base64
 
 
@@ -32,7 +33,7 @@ def read_yaml(path_to_yaml: Path) ->ConfigBox:
         logger.error(f"Error occurred while reading yaml file: {e}")
         raise e 
     
-@ensure_annotations
+
 def create_directories(path_to_directories: list, verbose=True):
     """Creates list of directories
 
@@ -45,7 +46,7 @@ def create_directories(path_to_directories: list, verbose=True):
             logger.info(f"Directory created at: {path_to_directory}")
 
 @ensure_annotations
-def save_json(path: Path, data: Any):
+def save_json(path: Path, data):
     """Saves data in json format
 
     Args:
@@ -61,7 +62,7 @@ def save_json(path: Path, data: Any):
         raise e
     
 @ensure_annotations
-def load_json(path: Path) ->Any:
+def load_json(path: Path):
     """Loads data from json file
 
     Args:
@@ -81,7 +82,7 @@ def load_json(path: Path) ->Any:
         raise e
     
 @ensure_annotations
-def save_bin(data: Any, path: Path) ->None:
+def save_bin(data, path: Path) ->None:
     """Saves binary data to a file
 
     Args:
@@ -92,7 +93,7 @@ def save_bin(data: Any, path: Path) ->None:
     logger.info(f"Binary data successfully saved to {path}")
 
 @ensure_annotations
-def load_bin(path: Path) ->Any:
+def load_bin(path: Path) :
     """Loads binary data from a file
 
     Args:
