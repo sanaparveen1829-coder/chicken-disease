@@ -140,7 +140,7 @@ def encode_image_to_base64(image_path: Path) ->str:
     
 
 @ensure_annotations
-def decode_base64_to_image(base64_string: str, output_path: Path) ->None:
+def decode_base64_to_image(base64_string: str, output_path: Path):
     """Decodes a base64 string and saves it as an image file
 
     Args:
